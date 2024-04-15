@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="stylesheet.css">
+        <title>Example Charity Page</title>
+        <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+            integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+            crossorigin=""/>
+        <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+            integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+            crossorigin=""></script>
+
+    </head>
+
+    <body>
+        <nav>
+            <div class="dropdown">
+                <button class="dropbtn">Menu
+                  <i class="fa fa-caret-down"></i>
+                </button>
+                <div class="dropdown-content">
+                  <a href="index.html">Home</a>
+                  <a href="charities.html">Charities</a>
+            </div>
+        </nav>
+        <div class="charity_container">
+            <div class="left_image_collage">
+                <img src="filler_image.jpg" alt="charity pictures" class="collage_pictures">
+                <img src="filler_image.jpg" alt="charity pictures" class="collage_pictures">
+                <img src="filler_image.jpg" alt="charity pictures" class="collage_pictures">
+            </div>
+
+            <div class="charity_profile_content">
+                <h2 class="charities_title">Charity Name</h2>
+                <p class="description">Paws & Hearts Rescue is more than just a shelter for animals; it's a 
+                    sanctuary of hope and compassion. With a mission to rescue and rehome abandoned, abused, 
+                    and neglected animals, we provide them with a second chance at life and love. Our dedicated 
+                    team of volunteers works tirelessly to rehabilitate and care for each animal, offering 
+                    veterinary treatment, nutritious meals, and plenty of love and attention. But our work goes 
+                    beyond just saving lives; we also strive to educate the community about responsible pet 
+                    ownership and the importance of spaying and neutering to reduce overpopulation and prevent 
+                    future suffering. Together, we are making a difference, one paw at a time. Join us in our 
+                    mission to create a world where every animal is cherished and every heart is filled with 
+                    love and compassion.</p>
+                <div id="map"></div>
+
+                <script>
+                    var map = L.map('map').setView([51.505, -0.09], 13);
+                
+                    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                        attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors',
+                        maxZoom: 18,
+                    }).addTo(map);
+                
+                    L.marker([51.5, -0.09]).addTo(map)
+                        .bindPopup('Paws & Hearts Rescue')
+                        .openPopup();
+                </script>
+
+
+                <div id="volunteer_form">
+                    <h4>Interested in Helping?</h4>
+                    <div class="volunteer_button_container">
+                        <button id="volunteer-button" class="profile_bottom_buttons">Volunteer Now!</button>
+                    </div>
+                    <form action="#" method="POST" class="volunteer_form" id="volunteer-form" style="display: none;">
+                        <label for="name">Name:</label><br>
+                        <input type="text" id="name" name="name" required><br><br>
+                
+                        <label for="email">Email:</label><br>
+                        <input type="email" id="email" name="email" required><br><br>
+                
+                        <label for="phone">Phone Number:</label><br>
+                        <input type="tel" id="phone" name="phone" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" required><br><br>
+                
+                        <label for="zip">Zip Code:</label><br>
+                        <input type="text" id="zip" name="zip" pattern="[0-9]{5}" required><br><br>
+                        
+                        <input type="submit" value="Submit">
+                    </form>
+                </div>
+                
+                <h4>Want to Look at Other Charities?</h4>
+                <div class="button_container">
+                    <a href="charities.html"><button class="profile_bottom_buttons">Back to Charities Page</button></a><br>
+                    <a href="index.html"><button class="profile_bottom_buttons">Back to Home</button></a>
+                </div>
+            </div>
+        </div>
+        <script src="charity_profile.js"></script>
+    </body>
+
+    <footer>
+        <table class="bottom">
+            <tr>
+                <td class="sm_logos"><img src="twitter_logo.png" alt="twitter logo" class="social_media"></td>
+                <td class="handle">@helphub</td>
+                <td class="sm_logos"><img src="facebook_logo.png" alt="facebook logo" class="social_media"></td>
+                <td class="handle">@helphub</td>
+                <td style="vertical-align: bottom;">1234 Helphub Lane</td>
+                <td rowspan="2"><img src="logo_greenbackground.png" alt="Helphub logo" class="logo"></td>
+            </tr>
+            <tr>
+                <td class="sm_logos"><img src="IG_logo.png" alt="ig logo" class="social_media"></td>
+                <td class="handle">@helpinghub</td>
+                <td class="sm_logos"><img src="youtube_logo.png" alt="youtube logo" class="social_media"></td>
+                <td class="handle">@helphubyoutube</td>
+                <td style="vertical-align: top;">Los Angeles, CA 12345</td>
+            </tr>
+            
+            
+        </table>
+        
+    </footer>
+</html>
